@@ -24,8 +24,9 @@ public class Main {
 
     private static Integer tryA(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
-            if (values.contains(SUM - values.get(i))) {
-                return values.get(i) * (SUM - values.get(i));
+            int remainValue = SUM - values.get(i);
+            if (values.indexOf(remainValue) != -1 && values.indexOf(remainValue) != i) {
+                return values.get(i) * (remainValue);
             }
         }
         throw new IllegalArgumentException("Solution not possible");
@@ -34,8 +35,10 @@ public class Main {
     private static Integer tryB(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
             for (int j = i + 1; j < values.size(); j++) {
-                if (values.contains(SUM - values.get(i) - values.get(j))) {
-                    return values.get(i) * values.get(j) * (SUM - values.get(i) - values.get(j));
+                int remainValue = SUM - values.get(i) - values.get(j);
+                if (values.indexOf(remainValue) != -1 && values.indexOf(remainValue) != i
+                        && values.indexOf(remainValue) != j) {
+                    return values.get(i) * values.get(j) * remainValue;
                 }
             }
         }
