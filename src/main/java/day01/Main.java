@@ -1,6 +1,5 @@
-package main.java.day1;
+package main.java.day01;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,33 +17,29 @@ public class Main {
 
             System.out.println(tryA(values));
             System.out.println(tryB(values));
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(String.format("Error: %s", e.getMessage()));
         }
     }
 
     private static Integer tryA(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
-            for (int j = i + 1; j < values.size(); j++) {
-                if (values.get(i) + values.get(j) == SUM) {
-                    return values.get(i) * values.get(j);
-                }
+            if (values.contains(SUM - values.get(i))) {
+                return values.get(i) * (SUM - values.get(i));
             }
         }
-        throw new IllegalArgumentException("Not possible");
+        throw new IllegalArgumentException("Solution not possible");
     }
 
     private static Integer tryB(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
             for (int j = i + 1; j < values.size(); j++) {
-                for (int k = j + 1; k < values.size(); k++) {
-                    if (values.get(i) + values.get(j) + values.get(k) == SUM) {
-                        return values.get(i) * values.get(j) * values.get(k);
-                    }
+                if (values.contains(SUM - values.get(i) - values.get(j))) {
+                    return values.get(i) * values.get(j) * (SUM - values.get(i) - values.get(j));
                 }
             }
         }
-        throw new IllegalArgumentException("Not possible");
+        throw new IllegalArgumentException("Solution not possible");
     }
 
 }
