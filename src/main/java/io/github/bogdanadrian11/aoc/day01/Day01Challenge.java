@@ -1,42 +1,43 @@
-package main.java.day01;
+package io.github.bogdanadrian11.aoc.day01;
+
+import io.github.bogdanadrian11.aoc.Challenge;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static main.java.util.IO.readFileLines;
+import static io.github.bogdanadrian11.aoc.util.IO.readFileLines;
 
-public class Main {
+public class Day01Challenge implements Challenge<List<Integer>, Integer> {
     private static final int SUM = 2020;
-    private static final String VALUES_FILE = "./src/main/resources/day01.input";
 
-    public static void main(String[] args) {
+    @Override
+    public void solve(String inputPath) {
         try {
-            List<Integer> values = readFileLines(VALUES_FILE).stream()
+            List<Integer> values = readFileLines(inputPath).stream()
                     .map(Integer::valueOf)
                     .collect(Collectors.toList());
-
-            System.out.println(tryA(values));
-            System.out.println(tryB(values));
+            System.out.println(partA(values));
+            System.out.println(partB(values));
         } catch (Exception e) {
-            System.out.println(String.format("Error: %s", e.getMessage()));
+            System.out.printf("Error: %s", e.getMessage());
         }
     }
 
-    private static Integer tryA(List<Integer> values) {
+    public Integer partA(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
             int remainValue = SUM - values.get(i);
-            if (values.indexOf(remainValue) != -1 && values.indexOf(remainValue) != i) {
+            if (values.contains(remainValue) && values.indexOf(remainValue) != i) {
                 return values.get(i) * (remainValue);
             }
         }
         throw new IllegalArgumentException("Solution not possible");
     }
 
-    private static Integer tryB(List<Integer> values) {
+    public Integer partB(List<Integer> values) {
         for (int i = 0; i < values.size(); i++) {
             for (int j = i + 1; j < values.size(); j++) {
                 int remainValue = SUM - values.get(i) - values.get(j);
-                if (values.indexOf(remainValue) != -1 && values.indexOf(remainValue) != i
+                if (values.contains(remainValue) && values.indexOf(remainValue) != i
                         && values.indexOf(remainValue) != j) {
                     return values.get(i) * values.get(j) * remainValue;
                 }
