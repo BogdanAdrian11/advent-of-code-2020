@@ -1,4 +1,4 @@
-package main.java.util;
+package io.github.bogdanadrian11.aoc.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
