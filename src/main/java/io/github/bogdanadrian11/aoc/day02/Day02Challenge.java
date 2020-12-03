@@ -17,7 +17,7 @@ public class Day02Challenge implements Challenge<List<PasswordLine>, Long> {
     public void solve(String inputPath) {
         try {
             List<PasswordLine> passwordLines = readFileLines(inputPath).stream()
-                    .map(Day02Challenge::deserialize)
+                    .map(this::deserialize)
                     .collect(Collectors.toList());
             System.out.println(partA(passwordLines));
             System.out.println(partB(passwordLines));
@@ -38,7 +38,7 @@ public class Day02Challenge implements Challenge<List<PasswordLine>, Long> {
                 .count();
     }
 
-    private static PasswordLine deserialize(String line) {
+    private PasswordLine deserialize(String line) {
         List<Integer> numberMatches = NUMBER.matcher(line).results()
                 .map(MatchResult::group)
                 .map(Integer::valueOf)

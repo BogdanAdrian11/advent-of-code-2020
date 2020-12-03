@@ -34,7 +34,7 @@ public class Day03Challenge implements Challenge<List<String>, BigInteger> {
                 .multiply(new BigInteger(String.valueOf(traverse(map, 2, 1))));
     }
 
-    private static int traverse(List<String> map, int moveDown, int moveRight) {
+    private int traverse(List<String> map, int moveDown, int moveRight) {
         int trees = 0;
         int rowPos = 0;
         for (int i = 0; i < map.size(); i+= moveDown) {
