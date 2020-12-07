@@ -8,7 +8,7 @@ import java.util.List;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFileLines;
 
-public class Day03Challenge implements Challenge<List<String>, BigInteger> {
+public class Day03Challenge implements Challenge {
     private static final char TREE = '#';
 
     @Override

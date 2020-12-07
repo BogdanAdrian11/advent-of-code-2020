@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFile;
 
-public class Day04Challenge implements Challenge<String, Long> {
+public class Day04Challenge implements Challenge {
     public static final String DIGITS_REGEX = "[0-9]+";
     public static final String PASSWORD_ID_REGEX = "[0-9]{9}";
     public static final String HAIR_COLOR_REGEX = "#[0-9a-f]{6}";
@@ -33,7 +33,7 @@ public class Day04Challenge implements Challenge<String, Long> {
         }
     }
 
-    @Override
+
     public Long partA(String input) {
         return Arrays.stream(input
                 .split("\n\n"))
@@ -47,7 +47,7 @@ public class Day04Challenge implements Challenge<String, Long> {
                 .count();
     }
 
-    @Override
+
     public Long partB(String input) {
         return Arrays.stream(input
                 .split("\n\n"))
