@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFile;
 
-public class Day06Challenge implements Challenge<String, Integer> {
+public class Day06Challenge implements Challenge {
     @Override
     public void solve(String inputPath) {
         try {
@@ -21,7 +21,7 @@ public class Day06Challenge implements Challenge<String, Integer> {
         }
     }
 
-    @Override
+
     public Integer partA(String input) {
         return Arrays.stream(input.split("\n\n"))
                 .map(group -> group.replace("\n", ""))
@@ -32,7 +32,7 @@ public class Day06Challenge implements Challenge<String, Integer> {
                 .reduce(0, Integer::sum);
     }
 
-    @Override
+
     public Integer partB(String input) {
         return Arrays.stream(input.split("\n\n"))
                 .map(group -> group.split("\n"))

@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFileLines;
 
-public class Day05Challenge implements Challenge<List<String>, Integer> {
+public class Day05Challenge implements Challenge {
     @Override
     public void solve(String inputPath) {
         try {
@@ -31,7 +31,7 @@ public class Day05Challenge implements Challenge<List<String>, Integer> {
                 , 2);
     }
 
-    @Override
+
     public Integer partA(List<String> input) {
         return input.stream()
                 .map(this::decodeID)
@@ -39,7 +39,7 @@ public class Day05Challenge implements Challenge<List<String>, Integer> {
                 .orElseThrow();
     }
 
-    @Override
+
     public Integer partB(List<String> input) {
         List<Integer> ids = input.stream()
                 .map(this::decodeID)

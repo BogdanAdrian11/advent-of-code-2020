@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFileLines;
 
-public class Day02Challenge implements Challenge<List<PasswordLine>, Long> {
+public class Day02Challenge implements Challenge {
     private static final Pattern NUMBER = Pattern.compile("[0-9]+");
     private static final Pattern LETTERS = Pattern.compile("[a-zA-Z]+");
 

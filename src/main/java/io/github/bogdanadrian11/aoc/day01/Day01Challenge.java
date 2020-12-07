@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import static io.github.bogdanadrian11.aoc.util.IO.readFileLines;
 
-public class Day01Challenge implements Challenge<List<Integer>, Integer> {
+public class Day01Challenge implements Challenge {
     private static final int SUM = 2020;
 
     @Override
