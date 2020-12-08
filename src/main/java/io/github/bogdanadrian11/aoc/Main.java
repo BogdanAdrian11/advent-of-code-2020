@@ -7,6 +7,7 @@ import io.github.bogdanadrian11.aoc.day04.Day04Challenge;
 import io.github.bogdanadrian11.aoc.day05.Day05Challenge;
 import io.github.bogdanadrian11.aoc.day06.Day06Challenge;
 import io.github.bogdanadrian11.aoc.day07.Day07Challenge;
+import io.github.bogdanadrian11.aoc.day08.Day08Challenge;
 
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class Main {
                 new Day04Challenge(),
                 new Day05Challenge(),
                 new Day06Challenge(),
-                new Day07Challenge());
+                new Day07Challenge(),
+                new Day08Challenge());
         for (int i = 0; i < challenges.size(); i++) {
             challenges.get(i).solve(getPath(i + 1));
         }
